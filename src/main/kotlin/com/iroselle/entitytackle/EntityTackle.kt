@@ -19,10 +19,10 @@ object EntityTackle : Plugin(), TackleAPI {
     lateinit var config: Configuration
 
     @ConfigNode("projector-duration")
-    var projectorDuration = 5
+    var projectorDuration = 100
 
     @ConfigNode("projector-distance")
-    var projectorDistance = 100
+    var projectorDistance = 10
 
     @ConfigNode("projector-type")
     var projectorType = "Guardian"

@@ -2,11 +2,14 @@ package com.iroselle.entitytackle.command
 
 import com.iroselle.entitytackle.EntityTackle
 import taboolib.common.platform.ProxyCommandSender
-import taboolib.common.platform.command.*
+import taboolib.common.platform.command.CommandBody
+import taboolib.common.platform.command.CommandHeader
 import taboolib.common.platform.command.component.CommandComponent
-import taboolib.common.platform.command.component.CommandComponentDynamic
 import taboolib.common.platform.command.component.CommandComponentLiteral
-import taboolib.expansion.createHelper
+import taboolib.common.platform.command.mainCommand
+import taboolib.common.platform.command.subCommand
+import taboolib.common.platform.function.pluginId
+import taboolib.common.platform.function.pluginVersion
 import taboolib.module.chat.colored
 
 @CommandHeader(
@@ -38,7 +41,14 @@ object Command {
         }
     }
 
-    /** TODO
+    @CommandBody(aliases = arrayOf("?"))
+    val about = subCommand {
+        execute<ProxyCommandSender> { sender, _, _ ->
+            sender.sendMessage("&e${pluginId}V${pluginVersion} is running.".colored())
+        }
+    }
+
+    /**
      *
      * /<command> <args...>
      * - help
