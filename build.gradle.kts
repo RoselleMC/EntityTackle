@@ -2,26 +2,28 @@ plugins {
     `java-library`
     `maven-publish`
     id("io.izzel.taboolib") version "1.56"
-    id("org.jetbrains.kotlin.jvm") version "1.5.10"
+    id("org.jetbrains.kotlin.jvm") version "1.8.10"
 }
 
 taboolib {
-    install("common")
-    install("common-5")
-    install("module-chat")
-    install("module-configuration")
-    install("module-database")
-    install("module-effect")
-    install("module-kether")
-    install("module-lang")
-    install("module-metrics")
-    install("module-nms")
-    install("module-nms-util")
-    install("module-ui")
-    install("platform-bukkit")
-    install("expansion-command-helper")
+    install("common",
+        "common-5",
+        "module-chat",
+        "module-configuration",
+        "module-database",
+        "module-effect",
+        "module-kether",
+        "module-lang",
+        "module-metrics",
+        "module-nms",
+        "module-nms-util",
+        "module-ui",
+        "platform-bukkit",
+        "expansion-command-helper",
+    )
     classifier = null
     version = "6.0.11-24"
+    relocate("fr.skytasul", "${project.name}.libs.fr.skytasul")
 }
 
 repositories {
@@ -30,9 +32,10 @@ repositories {
 
 dependencies {
     taboo("ink.ptms:um:1.0.0-beta-18")
+//    compileOnly("ink.ptms.core:v12001:12001:universal")
+    taboo("io.github.skytasul:guardianbeam:2.3.3")
+    compileOnly("ink.ptms.core:v12001:12001:mapped")
     compileOnly("ink.ptms:nms-all:1.0.0")
-    compileOnly("ink.ptms.core:v11902:11902-minimize:mapped")
-    compileOnly("ink.ptms.core:v11902:11902-minimize:universal")
     compileOnly(kotlin("stdlib"))
     compileOnly(fileTree("libs"))
 }
@@ -48,7 +51,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     }
 }
 
-configure<JavaPluginConvention> {
+configure<JavaPluginExtension> {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
 }
