@@ -1,0 +1,4 @@
+catcher-start: '&eYou''re catching selected entity, please keep 5 second recover to a egg.'
+catcher-failed: '&cCatch failed! your perspective shifts!'
+catcher-to-egg: '&aCaught! the entity is recovered to egg at your hand!'
+catcher-progress-bossbar: 'Progress: Catching &6{0}'

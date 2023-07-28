@@ -18,14 +18,14 @@ object EntityTackle : Plugin(), TackleAPI {
     @Config(autoReload = true)
     lateinit var config: Configuration
 
-    @ConfigNode("select-duration")
-    var selectDuration = 5
+    @ConfigNode("projector-duration")
+    var projectorDuration = 5
 
-    @ConfigNode("laser-duration")
-    var laserDuration = 100
+    @ConfigNode("projector-distance")
+    var projectorDistance = 100
 
-    @ConfigNode("laser-distance")
-    var laserDistance = 100
+    @ConfigNode("projector-type")
+    var projectorType = "Guardian"
 
     val catcherItem by resettableLazy("main") {
         buildItem(XMaterial.PLAYER_HEAD) {

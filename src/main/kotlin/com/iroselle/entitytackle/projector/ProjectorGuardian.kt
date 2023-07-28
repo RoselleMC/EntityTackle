@@ -11,7 +11,7 @@ class ProjectorGuardian(
     val target: Location
 ) : Projector {
 
-    val laser = GuardianLaser(head, target, EntityTackle.laserDuration, EntityTackle.laserDistance)
+    val laser = GuardianLaser(head, target, EntityTackle.projectorDuration, EntityTackle.projectorDistance)
 
     override fun start() {
         laser.start(bukkitPlugin)

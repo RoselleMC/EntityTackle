@@ -5,11 +5,11 @@ catcher-item:
   lore:
     - '&8Right click catch a selected entity to egg.'
 
-# second
-select-duration: 5
-
 # *block
-laser-distance: 10
+projector-distance: 10
 
 # *tick
-laser-duration: 100
+projector-duration: 100
+
+# Crystal, Guardian
+projector-type: Guardian
